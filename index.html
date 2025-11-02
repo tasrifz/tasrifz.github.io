@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Odyssey Garments Sourcing</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --navy:#1e3a8a;
+      --accent:#60a5fa;
+      --muted:#f5f7fa;
+      --card-shadow: 0 6px 18px rgba(11,59,102,0.06);
+    }
+
+    /* Base */
+    body{
+      font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #222121;
+      padding-top: 100px; 
+      background: #f3efef;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navbar */
+    .navbar{
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      background-color: rgba(30, 58, 138, 0.7);
+    }
+
+    .navbar-brand div:first-child {
+      font-weight: 700;
+      color: #fff;
+      font-size: 1.6rem;
+      letter-spacing: 0.5px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .navbar-brand small {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.8rem;
+    }
+
+    .navbar .nav-link,
+    .navbar .dropdown-item {
+      color: #fff !important;
+      font-weight: 500;
+      border-radius: 25px;
+      padding: 6px 18px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar .nav-link:hover,
+    .navbar .nav-link:focus,
+    .navbar .nav-link.active,
+    .navbar .dropdown-item:hover,
+    .navbar .dropdown-item:focus {
+      background: rgba(255,255,255,0.2);
+      color: #fff !important;
+    }
+
+    /* Dropdown animation */
+    .dropdown-menu {
+      list-style: none;
+      padding: 0.5rem;
+      margin: 0;
+      display: block;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.25s ease;
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      background: rgba(30, 58, 138, 0.7);
+      z-index: 1050;
+    }
+
+    .dropdown-menu.show {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .dropend > .dropdown-menu {
+      top: 0;
+      left: 100%;
+      transform: translateX(10px);
+      transition: all 0.25s ease;
+      background: rgba(30, 58, 138, 0.7);
+    }
+
+    .dropdown-menu .dropdown-item:hover {
+      background: linear-gradient(90deg, #60a5fa, #93c5fd);
+      transform: translateX(5px);
+    }
+
+    .navbar-toggler {
+      border: none;
+    }
+
+    .navbar-toggler-icon {
+      filter: invert(100%);
+    }
+
+    /* Hero Section */
+    .hero{min-height:72vh; display:flex; align-items:center; position:relative;}
+    .hero .hero-bg{
+      position:absolute; inset:0; background-position:center; background-size:cover;
+      filter:contrast(0.95) saturate(0.9);
+      animation: floatHero 10s ease-in-out infinite;
+    }
+    .hero .overlay{
+      position:absolute; inset:0; background:linear-gradient(90deg, rgba(11,59,102,0.45), rgba(25,118,210,0.18));
+      mix-blend-mode:multiply;
+    }
+    .hero .hero-content{position:relative; z-index:2;}
+    @keyframes floatHero {0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.service-card .details {
+  display: none;
+  text-align: left;
+  background: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+.service-card .details ul {
+  padding-left: 18px;
+}
+.service-card .details li {
+  margin-bottom: 6px;
+  color: #444;
+}
+.service-card h5 {
+  min-height: 50px; /* Ensures title height uniformity */
+}
+.service-card p {
+  min-height: 60px; /* Ensures description height uniformity */
+}
+.service-card:hover .view-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+.btn-primary {
+  background-color: #0f6ecb;
+  border-color: #0f6ecb;
+}
+.btn-primary:hover {
+  background-color: #0954a2;
+  border-color: #0954a2;
+}
+    /* Cards */
+    .card{border:0; border-radius:12px; box-shadow:var(--card-shadow);}
+    .product-card img{height:240px; object-fit:cover; border-top-left-radius:12px; border-top-right-radius:12px;}
+    .product-card .card-body{min-height:86px;}
+    .product-card{transition:transform .28s ease, box-shadow .28s ease;}
+    .product-card:hover{transform:translateY(-8px); box-shadow:0 18px 40px rgba(11,59,102,0.12);}
+    .gallery img{cursor:pointer;}
+    .testimonial{background:#fff; border-radius:10px; padding:1.5rem; box-shadow:var(--card-shadow);}
+
+    /* Footer */
+    footer{
+      background:rgba(30, 58, 138, 0.7); color:#f7f7f7;
+    }
+    footer a{
+      color:#a6d0ff;
+    }
+
+    /* Responsive */
+    @media (max-width:768px){ .hero{min-height:56vh} .product-card img{height:180px} }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+        <img src="odyssey logo.jpg" alt="Odyssey Logo" class="rounded" style="height:50px; object-fit:cover;">
+        <div>
+          <div>Odyssey Sourcing</div>
+          <small>Global Garments Sourcing • Bangladesh</small>
+        </div>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+        <ul class="navbar-nav gap-2">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="our services.html">Our Services</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
+            <ul class="dropdown-menu">
+              <!-- Men -->
+              <li class="dropend">
+                <a class="dropdown-item dropdown-toggle" href="#">Men</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="men's denim.html">Men's Denim</a></li>
+                  <li><a class="dropdown-item" href="men's sweater.html">Men's Sweaters</a></li>
+                  <li><a class="dropdown-item" href="men's knitwear.html">Men's Knitwear</a></li>
+                  <li><a class="dropdown-item" href="men's woven.html">Men's Woven</a></li>
+                </ul>
+              </li>
+              <!-- Women -->
+              <li class="dropend">
+                <a class="dropdown-item dropdown-toggle" href="#">Women</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="women's denim.html">Women's Denim</a></li>
+                  <li><a class="dropdown-item" href="women's sweaters.html">Women's Sweaters</a></li>
+                  <li><a class="dropdown-item" href="women's knitwear.html">Women's Knitwear</a></li>
+                  <li><a class="dropdown-item" href="women's woven.html">Women's Woven</a></li>
+                </ul>
+              </li>
+              <!-- Boys -->
+              <li class="dropend">
+                <a class="dropdown-item dropdown-toggle" href="#">Boys</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="boys denim.html">Boys Denim</a></li>
+                  <li><a class="dropdown-item" href="boys sweaters.html">Boys Sweaters</a></li>
+                  <li><a class="dropdown-item" href="boys knitwear.html">Boys Knitwear</a></li>
+                  <li><a class="dropdown-item" href="boys woven.html">Boys Woven</a></li>
+                </ul>
+              </li>
+              <!-- Girls -->
+              <li class="dropend">
+                <a class="dropdown-item dropdown-toggle" href="#">Girls</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="girls denim.html">Girls Denim</a></li>
+                  <li><a class="dropdown-item" href="girls sweaters.html">Girls Sweaters</a></li>
+                  <li><a class="dropdown-item" href="girls knitwear.html">Girls Knitwear</a></li>
+                  <li><a class="dropdown-item" href="girls woven.html">Girls Woven</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-outline-primary ms-3 d-none d-lg-inline">Get a Quote</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home" class="hero">
+    <div class="hero-bg" style="background-image: url('hero1.jpg');"></div>
+    <div class="overlay"></div>
+    <div class="container hero-content text-center text-white">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <h2 class="display-5 fw-bold">Odyssey Sourcing — Reliable apparel partners from Bangladesh</h2>
+          <p class="lead mt-3">Sourcing • Merchandising • Quality control • Logistics — full-package solutions for global brands.</p>
+          <div class="d-flex justify-content-center gap-2 mt-4">
+            <a class="btn btn-primary btn-lg" href="#contact">Request Quote</a>
+            <a class="btn btn-outline-light btn-lg" href="#products">View Products</a>
+          </div>
+          <div class="d-flex justify-content-center gap-3 mt-4 small opacity-75">
+            <div>ISO Certified Factories</div>
+            <div>·</div>
+            <div>Compliance & Ethical Sourcing</div>
+            <div>·</div>
+            <div>25-45 day lead time</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+<!-- ABOUT -->
+<section id="about" class="py-5">
+  <div class="container">
+    <div class="row align-items-center gy-4">
+      <div class="col-lg-6">
+        <h3 class="section-title text-center">About</h3>
+        <p class="text-muted">We connect international buyers with vetted suppliers in Bangladesh. Our team handles tech-packs, sampling, in-line inspections and pre-shipment checks so brands get consistent quality and on-time delivery.</p>
+        <ul class="mt-3">
+          <li>Full-package production and private label</li>
+          <li>On-site QC and transparent reporting</li>
+          <li>Small to large order capacity</li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <div class="card">
+          <img src="" class="img-fluid rounded" alt="factory team" loading="lazy">
+          <img src="" class="img-fluid rounded" alt="factory team" loading="lazy">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-5 bg-white">
+  <div class="container">
+    <h3 class="section-title text-center mb-5">Our Services</h3>
+    <div class="row g-4">
+
+      <!-- Product Development -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card service-card h-100 w-100 text-center p-3 shadow-sm border-0">
+          <img src="PD.jpg" class="img-fluid rounded mb-3" alt="Product Development" loading="lazy">
+          <h5 class="mb-1">Product Development</h5>
+          <p class="small text-muted">From design ideas to production-ready samples, we bring your vision to life.</p>
+          <a href="javascript:void(0);" class="btn btn-primary btn-sm" onclick="toggleDetails('productDevDetails')">View Details</a>
+
+          <div id="productDevDetails" class="details mt-4">
+            <ul>
+              <li>Design Support: Assisting buyers with design ideas, mood boards, CADs, and trend guidance</li>
+              <li>Sample Making: Developing proto, fit, size set, pre-production (PP), and shipment samples</li>
+              <li>Fabric & Trim Sourcing: Identifying the right fabrics, trims, accessories, and embellishments</li>
+              <li>End-to-End Production Support: Guidance throughout production to meet buyer specifications</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Merchandising -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card service-card h-100 w-100 text-center p-3 shadow-sm border-0">
+          <img src="Merchandising.jpg" class="img-fluid rounded mb-3" alt="Merchandising" loading="lazy">
+          <h5 class="mb-1">Merchandising</h5>
+          <p class="small text-muted">We manage timelines, samples, and approvals to ensure smooth order execution.</p>
+          <a href="javascript:void(0);" class="btn btn-primary btn-sm" onclick="toggleDetails('merchDetails')">View Details</a>
+
+          <div id="merchDetails" class="details mt-4">
+            <ul>
+              <li>Spec Creation: Detailed tech packs for production</li>
+              <li>Sampling: Coordination of proto, fit, pre-production, and shipment samples</li>
+              <li>Order Follow-up: Monitoring production timelines and approvals</li>
+              <li>Buyer Communication: Updates and problem resolution for smooth workflow</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vendor Sourcing -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card service-card h-100 w-100 p-3 shadow-sm border-0">
+          <img src="vendor.jpg" class="img-fluid rounded mb-3" alt="Vendor Sourcing" loading="lazy">
+          <h5 class="mb-1">Vendor Sourcing</h5>
+          <p class="small text-muted">We connect with compliant and capable factories to meet buyer expectations.</p>
+          <a href="javascript:void(0);" class="btn btn-primary btn-sm" onclick="toggleDetails('vendorDetails')">View Details</a>
+
+          <div id="vendorDetails" class="details mt-4">
+            <ul>
+              <li>Identify suitable manufacturers based on capacity, compliance, and product type</li>
+              <li>Pre-qualification audits to ensure quality and reliability</li>
+              <li>Maintain supplier database with ratings for easy selection</li>
+              <li>Ongoing relationship management and performance monitoring</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fabrics & Materials Sourcing -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card service-card h-100 w-100 text-center p-3 shadow-sm border-0">
+          <img src="Fabrics.jpg" class="img-fluid rounded mb-3" alt="Fabrics & Materials Sourcing" loading="lazy">
+          <h5 class="mb-1">Fabrics & Materials Sourcing</h5>
+          <p class="small text-muted">We source fabrics, trims, and accessories from trusted global suppliers.</p>
+          <a href="javascript:void(0);" class="btn btn-primary btn-sm" onclick="toggleDetails('fabricDetails')">View Details</a>
+
+          <div id="fabricDetails" class="details mt-4">
+            <ul>
+              <li>Identify quality fabrics, trims, and accessories</li>
+              <li>Source from trusted global suppliers and mills</li>
+              <li>Provide alternative options to optimize cost and quality</li>
+              <li>Ensure timely delivery for production schedules</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quality Assurance -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card service-card h-100 w-100 text-center p-3 shadow-sm border-0">
+          <img src="qualitry-assurance.jpg" class="img-fluid rounded mb-3" alt="Quality Assurance" loading="lazy">
+          <h5 class="mb-1">Quality Assurance</h5>
+          <p class="small text-muted">Strict inspection and testing ensure every product meets the highest standards.</p>
+          <a href="javascript:void(0);" class="btn btn-primary btn-sm" onclick="toggleDetails('qaDetails')">View Details</a>
+
+          <div id="qaDetails" class="details mt-4">
+            <ul>
+              <li>In-line inspections during production</li>
+              <li>AQL (Acceptable Quality Level) checks before shipment</li>
+              <li>Pre-shipment audits to ensure buyer specifications</li>
+              <li>Continuous quality monitoring and reporting</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Logistics Support -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card service-card h-100 w-100 text-center p-3 shadow-sm border-0">
+          <img src="logistic.jpg" class="img-fluid rounded mb-3" alt="Logistics Support" loading="lazy">
+          <h5 class="mb-1">Logistics Support</h5>
+          <p class="small text-muted">We manage shipping, freight, and documentation to ensure on-time delivery.</p>
+          <a href="javascript:void(0);" class="btn btn-primary btn-sm" onclick="toggleDetails('logisticsDetails')">View Details</a>
+
+          <div id="logisticsDetails" class="details mt-4">
+            <ul>
+              <li>Freight planning and coordination</li>
+              <li>Documentation support for customs and shipping</li>
+              <li>Monitoring delivery schedules</li>
+              <li>Problem resolution for logistics issues</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Compliance Monitoring -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card service-card h-100 w-100 text-center p-3 shadow-sm border-0">
+          <img src="CM.jpg" class="img-fluid rounded mb-3" alt="Compliance Monitoring" loading="lazy">
+          <h5 class="mb-1">Compliance Monitoring</h5>
+          <p class="small text-muted">We ensure every production partner meets global social, ethical, and technical standards.</p>
+          <a href="javascript:void(0);" class="btn btn-primary btn-sm" onclick="toggleDetails('complianceDetails')">View Details</a>
+
+          <div id="complianceDetails" class="details mt-4">
+            <ul>
+              <li>Factory Assessment & Selection: Pre-qualification audits and supplier database management</li>
+              <li>Ongoing Monitoring: Regular audits, corrective actions, and unannounced inspections</li>
+              <li>Social Compliance: Child labor checks, wages, working hours, and safety standards</li>
+              <li>Technical Compliance: Fire safety, building safety, machinery safety, and environmental compliance</li>
+              <li>Documentation & Reporting: Compliance certificates, audit reports, and buyer reporting</li>
+              <li>Buyer Coordination: Compliance communication and support for audits</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Competitive Price -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card service-card h-100 w-100 text-center p-3 shadow-sm border-0">
+          <img src="price.jpg" class="img-fluid rounded mb-3" alt="Competitive Price" loading="lazy">
+          <h5 class="mb-1">Competitive Price</h5>
+          <p class="small text-muted">We believe in providing best value with complete transparency.</p>
+          <a href="javascript:void(0);" class="btn btn-primary btn-sm" onclick="toggleDetails('priceDetails')">View Details</a>
+
+          <div id="priceDetails" class="details mt-4">
+            <ul>
+              <li>Clear Cost Breakdown: FOB, raw materials, labor, overhead, margin</li>
+              <li>No hidden fees or undisclosed charges</li>
+              <li>Open-book costing methodology for transparency</li>
+              <li>Balanced Value Creation: Win-win negotiation and lead-time management</li>
+              <li>Smart Sourcing: Volume consolidation, alternative suppliers, seasonal planning</li>
+              <li>Industry Insights: Market reports and supply chain alerts</li>
+              <li>Partnership Benefits: Transparent communication and buyer satisfaction</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- PRODUCTS -->
+<section id="products" class="py-5">
+  <div class="container">
+    <h3 class="section-title text-center">Product Categories</h3>
+    <div class="row g-4 mt-4">
+      <!-- Product 1 -->
+      <div class="col-sm-6 col-md-3">
+        <div class="card product-card overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1520974735194-15f3a6ec73d7?auto=format&fit=crop&w=900&q=80" class="card-img-top" alt="mens wear" loading="lazy">
+          <div class="card-body text-center">
+            <h5 class="card-title mb-1">Men's Wear</h5>
+            <p class="small text-muted">Knits & woven selections for retail and private label.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Product 2 -->
+      <div class="col-sm-6 col-md-3">
+        <div class="card product-card overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=900&q=80" class="card-img-top" alt="womens wear" loading="lazy">
+          <div class="card-body text-center">
+            <h5 class="card-title mb-1">Women's Wear</h5>
+            <p class="small text-muted">Seasonal collections, dresses and outerwear.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Product 3 -->
+      <div class="col-sm-6 col-md-3">
+        <div class="card product-card overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1600180758890-6f68007e3a36?auto=format&fit=crop&w=900&q=80" class="card-img-top" alt="kids wear" loading="lazy">
+          <div class="card-body text-center">
+            <h5 class="card-title mb-1">Boys' Wear</h5>
+            <p class="small text-muted">Small-batch runs and safe trims for kids.</p>
+          </div>
+        </div>
+      </div>
+        <!-- Product 3 -->
+      <div class="col-sm-6 col-md-3">
+        <div class="card product-card overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1600180758890-6f68007e3a36?auto=format&fit=crop&w=900&q=80" class="card-img-top" alt="kids wear" loading="lazy">
+          <div class="card-body text-center">
+            <h5 class="card-title mb-1">Girls' Wear</h5>
+            <p class="small text-muted">Small-batch runs and safe trims for kids.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY with Lightbox -->
+<section id="gallery" class="py-5 bg-white">
+  <div class="container">
+    <h3 class="section-title text-center">Gallery</h3>
+    <div class="row g-3 mt-3 gallery">
+      <div class="col-6 col-md-3">
+        <img src="https://images.unsplash.com/photo-1524646432683-4dc61e77e26d?auto=format&fit=crop&w=800&q=80" class="img-fluid rounded shadow-sm" alt="gallery1" loading="lazy" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-src="https://images.unsplash.com/photo-1524646432683-4dc61e77e26d?auto=format&fit=crop&w=1400&q=80">
+      </div>
+      <div class="col-6 col-md-3">
+        <img src="https://images.unsplash.com/photo-1514997130083-1506f5c0d12e?auto=format&fit=crop&w=800&q=80" class="img-fluid rounded shadow-sm" alt="gallery2" loading="lazy" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-src="https://images.unsplash.com/photo-1514997130083-1506f5c0d12e?auto=format&fit=crop&w=1400&q=80">
+      </div>
+      <div class="col-6 col-md-3">
+        <img src="https://images.unsplash.com/photo-1526312426976-f4d754fa9bd6?auto=format&fit=crop&w=800&q=80" class="img-fluid rounded shadow-sm" alt="gallery3" loading="lazy" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-src="https://images.unsplash.com/photo-1526312426976-f4d754fa9bd6?auto=format&fit=crop&w=1400&q=80">
+      </div>
+      <div class="col-6 col-md-3">
+        <img src="https://images.unsplash.com/photo-1520974735194-15f3a6ec73d7?auto=format&fit=crop&w=800&q=80" class="img-fluid rounded shadow-sm" alt="gallery4" loading="lazy" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-src="https://images.unsplash.com/photo-1520974735194-15f3a6ec73d7?auto=format&fit=crop&w=1400&q=80">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div class="modal fade" id="lightboxModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0">
+        <button type="button" class="btn-close btn-close-white position-absolute end-3 top-3" data-bs-dismiss="modal" aria-label="Close"></button>
+        <img src="" id="lightboxImage" class="w-100 rounded" alt="preview">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="py-5">
+  <div class="container">
+    <h3 class="section-title text-center">What our buyers say</h3>
+    <div id="testiCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="testimonial mx-auto" style="max-width:820px">
+            <p class="mb-2">"Odyssey Sourcing helped us scale production with consistent quality and clear communication. Their QC reports are detailed and very useful."</p>
+            <div class="d-flex align-items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=80&q=80" class="rounded-circle" width="48" height="48" loading="lazy">
+              <div>
+                <strong>Emma R.</strong><br>
+                <small class="text-muted">Head of Product, Global Brand</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="testimonial mx-auto" style="max-width:820px">
+            <p class="mb-2">"They matched us with a factory that met our sustainability requirements and delivered on time for three consecutive seasons."</p>
+            <div class="d-flex align-items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1545996124-9c7ff6c3d1c9?auto=format&fit=crop&w=80&q=80" class="rounded-circle" width="48" height="48" loading="lazy">
+              <div>
+                <strong>Liam P.</strong><br>
+                <small class="text-muted">Sourcing Manager, Retailer</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#testiCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#testiCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-5 bg-white">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <h3 class="section-title">Get in touch</h3>
+        <p class="text-muted">Tell us about your project — order size, target price, and any compliance needs. We respond within 48 hours.</p>
+        <ul class="list-unstyled">
+          <li><strong>Office:</strong> House 12, Road 4, Dhaka, Bangladesh</li>
+          <li><strong>Email:</strong> info@odysseysourcing.com</li>
+          <li><strong>Phone:</strong> +880 1700 000 000</li>
+        </ul>
+        <div class="mt-3">
+          <a href="#" class="me-2"><i class="fab fa-linkedin fa-lg"></i></a>
+          <a href="#" class="me-2"><i class="fab fa-facebook fa-lg"></i></a>
+          <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <form action="https://formspree.io/f/yourformid" method="POST" class="p-4 border rounded shadow-sm bg-light">
+          <div class="mb-3"><input type="text" name="name" class="form-control" placeholder="Your name" required></div>
+          <div class="mb-3"><input type="email" name="email" class="form-control" placeholder="Email" required></div>
+          <div class="mb-3"><input type="text" name="company" class="form-control" placeholder="Company (optional)"></div>
+          <div class="mb-3"><textarea name="message" rows="5" class="form-control" placeholder="Project details" required></textarea></div>
+          <button type="submit" class="btn btn-primary w-100">Send message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <!-- Footer -->
+  <footer class="py-4 mt-auto">
+    <div class="container text-center">
+      <p>&copy; 2025 Odyssey Sourcing. All rights reserved.</p>
+      <div class="d-flex justify-content-center gap-3">
+        <a href="#"><i class="fab fa-facebook fa-lg"></i></a>
+        <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+        <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
+        <a href="#"><i class="fab fa-youtube fa-lg"></i></a>
+      </div>
+    </div>
+  </footer>
+
+</section>
+   <script>
+  document.addEventListener("DOMContentLoaded", function() {
+  // Hover delay time (in ms)
+  const delay = 200;
+  let hideTimeout;
+
+  // Main dropdown hover
+  document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+    dropdown.addEventListener('mouseenter', function() {
+      clearTimeout(hideTimeout);
+      const toggle = this.querySelector('[data-bs-toggle="dropdown"]');
+      const bsDropdown = bootstrap.Dropdown.getOrCreateInstance(toggle);
+      bsDropdown.show();
+    });
+
+    dropdown.addEventListener('mouseleave', function() {
+      const toggle = this.querySelector('[data-bs-toggle="dropdown"]');
+      const bsDropdown = bootstrap.Dropdown.getOrCreateInstance(toggle);
+      hideTimeout = setTimeout(() => bsDropdown.hide(), delay);
+    });
+  });
+
+  // Dropend (nested dropdowns)
+  document.querySelectorAll('.dropend').forEach(function(dropend) {
+    let subTimeout;
+
+    dropend.addEventListener('mouseenter', function() {
+      clearTimeout(subTimeout);
+      const submenu = this.querySelector('.dropdown-menu');
+      if (!submenu) return;
+
+      // Flip submenu if going off-screen
+      submenu.removeAttribute('data-flip');
+      submenu.classList.add('show');
+      const rect = submenu.getBoundingClientRect();
+      if (rect.right > window.innerWidth) submenu.setAttribute('data-flip', 'left');
+    });
+
+    dropend.addEventListener('mouseleave', function() {
+      const submenu = this.querySelector('.dropdown-menu');
+      if (!submenu) return;
+      subTimeout = setTimeout(() => submenu.classList.remove('show'), delay);
+    });
+  });
+});
+
+function toggleDetails(id) {
+  const section = document.getElementById(id);
+  section.style.display = section.style.display === "block" ? "none" : "block";
+}
+
+</script>
+
+
+<!-- Bootstrap JS Bundle -->
+
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</body>
+</html>

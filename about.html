@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Odyssey Sourcing</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --navy:#1e3a8a;
+      --accent:#60a5fa;
+      --muted:#f5f7fa;
+      --card-shadow: 0 6px 18px rgba(11,59,102,0.06);
+    }
+
+    body{
+      font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #222121;
+      padding-top: 100px; 
+      background: #f3efef;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    p { text-align: justify; }
+
+    .navbar{
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      background-color: rgba(30, 58, 138, 0.7);
+    }
+
+    .navbar-brand div:first-child {
+      font-weight: 700;
+      color: #fff;
+      font-size: 1.6rem;
+      letter-spacing: 0.5px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .navbar-brand small {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.8rem;
+    }
+
+    .navbar .nav-link,
+    .navbar .dropdown-item {
+      color: #fff !important;
+      font-weight: 500;
+      border-radius: 25px;
+      padding: 6px 18px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar .nav-link:hover,
+    .navbar .nav-link:focus,
+    .navbar .nav-link.active,
+    .navbar .dropdown-item:hover,
+    .navbar .dropdown-item:focus {
+      background: rgba(255,255,255,0.2);
+      color: #fff !important;
+    }
+
+    .card{border:0; border-radius:12px; box-shadow:var(--card-shadow); transition: transform .3s;}
+    .card:hover{transform:translateY(-6px);}
+    
+    footer{background:rgba(30, 58, 138, 0.7); color:#f7f7f7;}
+    footer a{color:#a6d0ff;}
+
+    .section-title { font-weight:700; margin-bottom:1rem; color:var(--navy); }
+
+    .mission-vision img, .who-we-are img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+    }
+
+    @media (max-width:768px){
+      .mission-vision, .who-we-are {
+        flex-direction: column !important;
+      }
+      .mission-vision img, .who-we-are img {
+        margin-bottom: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="odyssey logo.jpg" alt="Odyssey Logo" class="rounded" style="height:50px; object-fit:cover;">
+        <div>
+          <div>Odyssey Sourcing</div>
+          <small>Global Garments Sourcing • Bangladesh</small>
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+        <ul class="navbar-nav gap-2">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="our services.html">Our Services</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
+            <ul class="dropdown-menu">
+              <!-- Men -->
+              <li class="dropend">
+                <a class="dropdown-item dropdown-toggle" href="#">Men</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="men's denim.html">Men's Denim</a></li>
+                  <li><a class="dropdown-item" href="men's sweater.html">Men's Sweaters</a></li>
+                  <li><a class="dropdown-item" href="men's knitwear.html">Men's Knitwear</a></li>
+                  <li><a class="dropdown-item" href="men's woven.html">Men's Woven</a></li>
+                </ul>
+              </li>
+              <!-- Women -->
+              <li class="dropend">
+                <a class="dropdown-item dropdown-toggle" href="#">Women</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="women's denim.html">Women's Denim</a></li>
+                  <li><a class="dropdown-item" href="women's sweaters.html">Women's Sweaters</a></li>
+                  <li><a class="dropdown-item" href="women's knitwear.html">Women's Knitwear</a></li>
+                  <li><a class="dropdown-item" href="women's woven.html">Women's Woven</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-outline-primary ms-3 d-none d-lg-inline">Get a Quote</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- WHO WE ARE -->
+  <section class="py-5 who-we-are">
+    <div class="container">
+      <h2 class="section-title text-center mb-4">Who We Are</h2>
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-6">
+          <img src="who-we-are.jpg" alt="Teamwork Image">
+        </div>
+        <div class="col-lg-6">
+          <p>The Odyssey Sourcing are the trusted garment buying house based in Bangladesh, specializing in sourcing and supplying high-quality apparel for global brands and retailers. With strong relationships across leading factories, we ensure every stage of production is managed with precision — from design development and raw material sourcing to manufacturing oversight and final shipment.</p>
+
+          <p>With over a decade of dedicated service in the apparel export industry, we have consistently delivered high-quality garments with integrity and commitment to a diverse clientele across the United Kingdom, Europe, the United States, Canada, Africa, and Asia.</p>
+
+          <p>With a deep understanding of fashion trends, strong vendor networks, and strict quality control practices, we ensure that every product meets the highest standards of quality, compliance, and timely delivery. Our professional team is committed to maintaining transparent communication, ethical sourcing, and sustainable production practices.</p>
+
+          <p>At The Odyssey Sourcing, we prioritize long-term and sustainable business relationships. Our guiding principle is to deliver value to our clients by offering competitive pricing, uncompromised quality, and on-time delivery. Our strength lies in our professional approach, product reliability, and dedication to customer satisfaction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+<section class="py-5 mission-section">
+  <div class="container">
+    <div class="row align-items-center gy-4">
+      <!-- Image -->
+      <div class="col-lg-6">
+        <img src="mission.jpg" alt="Mission Image" class="img-fluid rounded shadow">
+      </div>
+      <!-- Text -->
+      <div class="col-lg-6" style="text-align: justify;">
+        <h2 class="section-title">Our Mission</h2>
+        <p>To be a trusted and dynamic garment buying house based in Bangladesh, delivering high-quality apparel solutions to global clients. We strive to:</p>
+        <ul>
+          <li>Build long-term relationships by offering reliable, ethical, and value-driven sourcing services.</li>
+          <li>Ensure premium quality, competitive pricing, and timely delivery across all product categories.</li>
+          <li>Promote transparency, sustainability, and compliance in every step of our supply chain.</li>
+          <li>Foster a safe, clean, and inclusive working environment for our employees and partners.</li>
+          <li>Continuously innovate and evolve to meet the changing demands of the international fashion industry.</li>
+        </ul>
+        <p>We are dedicated to turning our clients’ concepts into reality—seamlessly, ethically, and efficiently.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- VISION -->
+  <section class="py-5 bg-white mission-vision">
+    <div class="container">
+      <h2 class="section-title text-center mb-4">Vision</h2>
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-6">
+          <img src="vision.jpg" alt="Vision Image">
+        </div>
+        <div class="col-lg-6">
+          <p>At Odyssey Sourcing, our vision is to emerge as a globally trusted garment buying house from Bangladesh—recognized for our unwavering commitment to quality, ethical sourcing, and customer satisfaction.</p>
+          <p>We aspire to lead with integrity and innovation, setting new standards in apparel sourcing by:</p>
+          <ul>
+            <li>Building long-term partnerships based on transparency and trust.</li>
+            <li>Promoting sustainable and socially responsible practices.</li>
+            <li>Delivering value-driven solutions tailored to each client’s unique needs.</li>
+            <li>Representing the excellence of Bangladesh’s RMG sector on the global stage.</li>
+          </ul>
+          <p>Through continuous improvement and a passion for perfection, we envision becoming the preferred sourcing partner for fashion brands worldwide.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="section-title text-center mb-5">Our Values</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card text-center p-3">
+            <i class="fas fa-handshake fa-3x mb-3 text-primary"></i>
+            <h5 class="fw-bold">Integrity</h5>
+            <p>We believe in honest, transparent, and ethical business practices.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-center p-3">
+            <i class="fas fa-gem fa-3x mb-3 text-primary"></i>
+            <h5 class="fw-bold">Quality</h5>
+            <p>We ensure world-class standards in every stage of sourcing and production.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-center p-3">
+            <i class="fas fa-rocket fa-3x mb-3 text-primary"></i>
+            <h5 class="fw-bold">Commitment</h5>
+            <p>We deliver on promises with reliability and professionalism.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-center p-3">
+            <i class="fas fa-users fa-3x mb-3 text-primary"></i>
+            <h5 class="fw-bold">Customer Focus</h5>
+            <p>We prioritize client needs and build long-term partnerships.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-center p-3">
+            <i class="fas fa-leaf fa-3x mb-3 text-primary"></i>
+            <h5 class="fw-bold">Sustainability</h5>
+            <p>We promote responsible sourcing and eco-friendly practices.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-4 mt-auto">
+    <div class="container text-center">
+      <p>&copy; 2025 Odyssey Sourcing. All rights reserved.</p>
+      <div class="d-flex justify-content-center gap-3">
+        <a href="#"><i class="fab fa-facebook fa-lg"></i></a>
+        <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+        <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
+        <a href="#"><i class="fab fa-youtube fa-lg"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+
+   
+
+
+

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services - Odyssey Sourcing</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --navy:#1e3a8a;
+      --accent:#60a5fa;
+      --muted:#f5f7fa;
+      --card-shadow: 0 6px 18px rgba(11,59,102,0.06);
+    }
+
+    body{
+      font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #222121;
+      padding-top: 100px; 
+      background: #f3efef;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    p { text-align: justify; }
+
+    .navbar{
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      background-color: rgba(30, 58, 138, 0.7);
+    }
+
+    .navbar-brand div:first-child {
+      font-weight: 700;
+      color: #fff;
+      font-size: 1.6rem;
+      letter-spacing: 0.5px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .navbar-brand small {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.8rem;
+    }
+
+    .navbar .nav-link,
+    .navbar .dropdown-item {
+      color: #fff !important;
+      font-weight: 500;
+      border-radius: 25px;
+      padding: 6px 18px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar .nav-link:hover,
+    .navbar .nav-link:focus,
+    .navbar .nav-link.active,
+    .navbar .dropdown-item:hover,
+    .navbar .dropdown-item:focus {
+      background: rgba(255,255,255,0.2);
+      color: #fff !important;
+    }
+
+    .card{border:0; border-radius:12px; box-shadow:var(--card-shadow); transition: transform .3s;}
+    .card:hover{transform:translateY(-6px);}
+    
+    footer{background:rgba(30, 58, 138, 0.7); color:#f7f7f7;}
+    footer a{color:#a6d0ff;}
+
+    .section-title { font-weight:700; margin-bottom:2rem; color:var(--navy); text-align:center; }
+
+    .service-icon { font-size: 3rem; color: var(--accent); margin-bottom: 1rem; }
+
+    @media (max-width:768px){
+      .service-row { flex-direction: column-reverse; }
+      .service-image { margin-bottom: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="odyssey logo.jpg" alt="Odyssey Logo" class="rounded" style="height:50px; object-fit:cover;">
+        <div>
+          <div>Odyssey Sourcing</div>
+          <small>Global Garments Sourcing • Bangladesh</small>
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+        <ul class="navbar-nav gap-2">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active" href="our services.html">Our Services</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
+            <ul class="dropdown-menu">
+              <li class="dropend">
+                <a class="dropdown-item dropdown-toggle" href="#">Men</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="men's denim.html">Men's Denim</a></li>
+                  <li><a class="dropdown-item" href="men's sweater.html">Men's Sweaters</a></li>
+                  <li><a class="dropdown-item" href="men's knitwear.html">Men's Knitwear</a></li>
+                  <li><a class="dropdown-item" href="men's woven.html">Men's Woven</a></li>
+                </ul>
+              </li>
+              <li class="dropend">
+                <a class="dropdown-item dropdown-toggle" href="#">Women</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="women's denim.html">Women's Denim</a></li>
+                  <li><a class="dropdown-item" href="women's sweaters.html">Women's Sweaters</a></li>
+                  <li><a class="dropdown-item" href="women's knitwear.html">Women's Knitwear</a></li>
+                  <li><a class="dropdown-item" href="women's woven.html">Women's Woven</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-outline-primary ms-3 d-none d-lg-inline">Get a Quote</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Our Services Section -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <p class="text-center mb-5">At Odyssey Sourcing, we offer comprehensive garment sourcing solutions for global brands. Every stage, from design to delivery, is handled ethically, efficiently, and with complete transparency.</p>
+
+      <!-- First Row -->
+      <div class="row align-items-center service-row mb-5">
+        <div class="col-lg-6 service-image">
+          <img src="sourcing.jpg" alt="Sourcing" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-lg-6">
+          <div class="row g-4">
+            <div class="col-md-12">
+              <div class="card text-center p-4 h-100">
+                <i class="fas fa-box-open service-icon"></i>
+                <h5 class="fw-bold">Sourcing & Procurement</h5>
+                <p>We source premium fabrics, trims, and accessories while maintaining ethical standards and quality compliance.</p>
+              </div>
+            </div>
+            <div class="col-md-12 mt-4">
+              <div class="card text-center p-4 h-100">
+                <i class="fas fa-industry service-icon"></i>
+                <h5 class="fw-bold">Production Oversight</h5>
+                <p>We monitor manufacturing processes to ensure products meet the highest standards of quality and design.</p>
+              </div>
+            </div>
+            <div class="col-md-12 mt-4">
+              <div class="card text-center p-4 h-100">
+                <i class="fas fa-check-circle service-icon"></i>
+                <h5 class="fw-bold">Quality Control</h5>
+                <p>Every product undergoes rigorous inspection from raw materials to final shipment to ensure consistency and compliance.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Second Row -->
+      <div class="row align-items-center service-row mb-5">
+        <div class="col-lg-6 order-lg-2 service-image">
+          <img src="logistics.jpg" alt="Logistics" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-lg-6 order-lg-1">
+          <div class="row g-4">
+            <div class="col-md-12">
+              <div class="card text-center p-4 h-100">
+                <i class="fas fa-truck service-icon"></i>
+                <h5 class="fw-bold">Logistics & Shipping</h5>
+                <p>We coordinate global shipments, ensuring timely delivery and seamless customs clearance for all clients.</p>
+              </div>
+            </div>
+            <div class="col-md-12 mt-4">
+              <div class="card text-center p-4 h-100">
+                <i class="fas fa-comments service-icon"></i>
+                <h5 class="fw-bold">Client Consultation</h5>
+                <p>We provide personalized guidance on product development, market trends, and design solutions.</p>
+              </div>
+            </div>
+            <div class="col-md-12 mt-4">
+              <div class="card text-center p-4 h-100">
+                <i class="fas fa-leaf service-icon"></i>
+                <h5 class="fw-bold">Sustainability Practices</h5>
+                <p>We promote eco-friendly sourcing and responsible production practices across the supply chain.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-4 mt-auto">
+    <div class="container text-center">
+      <p>&copy; 2025 Odyssey Sourcing. All rights reserved.</p>
+      <div class="d-flex justify-content-center gap-3">
+        <a href="#"><i class="fab fa-facebook fa-lg"></i></a>
+        <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+        <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
+        <a href="#"><i class="fab fa-youtube fa-lg"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
